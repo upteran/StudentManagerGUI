@@ -1,4 +1,4 @@
-package studentManager;
+package student.manager;
 /**
  * The Course class represents a course object for any university course.
  * It follows the same logic as in the Student class and is created to encapsulate the

@@ -1,6 +1,6 @@
-import studentManager.Course;
-import studentManager.CourseManagement;
-import studentManager.Student;
+import student.manager.Course;
+import student.manager.CourseManagement;
+import student.manager.Student;
 
 import javax.swing.*;
 import java.awt.*;
