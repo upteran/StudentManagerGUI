@@ -5,9 +5,8 @@ import studentManager.Student;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-class StudentManagementGUI extends JFrame {
+public class StudentManagementGUI extends JFrame {
     // GUI Components
     private JButton addStudentButton;
     private JButton addCourseButton;
@@ -33,7 +32,6 @@ class StudentManagementGUI extends JFrame {
 
         // Add action listeners for the buttons
         addStudentButton.addActionListener(e -> handleAddStudent());
-        // Add action listeners for the buttons
         addCourseButton.addActionListener(e -> handleAddCourse());
         updateStudentButton.addActionListener(e -> handleUpdateStudent());
         viewStudentButton.addActionListener(e -> handleViewStudentDetails());
@@ -94,7 +92,7 @@ class StudentManagementGUI extends JFrame {
 
     private void handleAddCourse() {
         // Create a JPanel to hold the form components
-        JPanel panel = new JPanel(new GridLayout(3, 2));
+        JPanel panel = new JPanel(new GridLayout(4, 1));
 
         // Form components
         JTextField codeField = new JTextField();
@@ -102,9 +100,9 @@ class StudentManagementGUI extends JFrame {
         JTextField nameField = new JTextField();
 
         // Add components to the panel
-        panel.add(new JLabel("Enter course code:"));
+        panel.add(new JLabel("Enter course code:\n"));
         panel.add(codeField);
-        panel.add(new JLabel("Enter maximum capacity:"));
+        panel.add(new JLabel("Enter maximum capacity:\n"));
         panel.add(capacityField);
         panel.add(new JLabel("Enter course name:"));
         panel.add(nameField);
@@ -203,7 +201,8 @@ class StudentManagementGUI extends JFrame {
         // Append details for each student
         for (Student student : students) {
             details.append("Name: ").append(student.getName()).append("\n");
-            details.append("ID: ").append(student.getId()).append("\n\n");
+            details.append("ID: ").append(student.getId()).append("\n");
+            details.append("Overall Grade: ").append(student.calculateOverallGrade()).append("\n\n");
         }
 
         // Display the details using a JTextArea
@@ -356,11 +355,6 @@ class StudentManagementGUI extends JFrame {
                         "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-    }
-
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new StudentManagementGUI());
     }
 }
 
